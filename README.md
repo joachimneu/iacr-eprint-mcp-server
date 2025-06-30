@@ -15,13 +15,13 @@ This Model Context Protocol (MCP) server provides a programmatic interface to th
 - 🔍 Search cryptographic papers
 - 📋 Retrieve paper metadata  
 - 💾 Download papers in PDF or TXT format
-- 🐍 Modern Python implementation with async/await
+- 🐍 Modern Python implementation with FastMCP
 - 🔒 Type-safe with Pydantic models
 - ⚡ Fast HTTP requests with httpx
 
 ## Prerequisites
 
-- Python 3.11+
+- Python 3.12+
 - pip or uv (recommended)
 
 ## Installation
@@ -47,7 +47,9 @@ pip install -e .
 ```bash
 git clone https://github.com/joachimneu/iacr-eprint-mcp-server.git
 cd iacr-eprint-mcp-server
-pip install -e ".[dev]"
+uv venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+uv pip install -e ".[dev]"
 ```
 
 ## Configuration
@@ -93,7 +95,7 @@ This project uses modern Python development practices:
 - **Ruff** for code formatting and linting
 - **Pydantic** for data validation and settings
 - **Type hints** throughout the codebase
-- **Async/await** for efficient I/O operations
+- **FastMCP** for idiomatic MCP server implementation
 - **httpx** for modern HTTP client functionality
 
 ### Running Tests

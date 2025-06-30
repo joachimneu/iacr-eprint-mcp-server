@@ -9,4 +9,4 @@ startCommand:
   commandFunction:
     # A function that produces the CLI command to start the MCP on stdio.
     |-
-    config => ({ command: 'python', args: ['-m', 'iacr_mcp_server'] })
+    config => ({ command: 'python', args: ['-m', 'iacr_eprint_mcp_server'] })

@@ -50,6 +50,15 @@ async def get_paper_details(request: GetPaperDetailsRequest) -> str:
 
         return json.dumps(paper_details.model_dump(), indent=2)
 
+    except httpx.HTTPStatusError as e:
+        logger.error(f"HTTP error fetching RSS feed: {e.response.status_code}")
+        return f"Error: Failed to fetch RSS feed (HTTP {e.response.status_code})"
+    except httpx.RequestError as e:
+        logger.error(f"Network error fetching RSS feed: {str(e)}")
+        return "Error: Network error fetching RSS feed"
+    except KeyError as e:
+        logger.error(f"Missing field in paper data: {str(e)}")
+        return f"Error: Incomplete paper data (missing {str(e)})"
     except Exception as e:
-        logger.error(f"Paper details error: {str(e)}")
+        logger.error(f"Unexpected error getting paper details: {str(e)}")
         return f"Error: {str(e)}"
