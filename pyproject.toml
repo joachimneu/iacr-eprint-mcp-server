@@ -3,11 +3,11 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "iacr-mcp-server"
+name = "iacr-eprint-mcp-server"
 version = "0.1.0"
 description = "MCP Server for IACR Cryptology ePrint Archive"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 license = { text = "MIT" }
 authors = [
     { name = "doomdagadiggiedahdah", email = "" }
@@ -25,7 +25,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "black>=23.3.0",
+    "ruff>=0.4.0",
     "pytest>=8.0.0",
     "pytest-asyncio>=0.23.5",
     "pytest-cov>=4.1.0",
@@ -38,7 +38,7 @@ testpaths = ["tests"]
 addopts = "-v --cov=iacr_mcp_server"
 
 [project.scripts]
-iacr-mcp-server = "iacr_mcp_server:main"
+iacr-eprint-mcp-server = "iacr_mcp_server:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/iacr_mcp_server"]
@@ -46,20 +46,14 @@ packages = ["src/iacr_mcp_server"]
 [tool.hatch.metadata]
 allow-direct-references = true
 
-[tool.black]
+[tool.ruff]
 line-length = 88
-target-version = ["py311"]
-include = '\.pyi?$'
-exclude = '''
-/(
-    \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-)/
-'''
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "A", "COM", "PT"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

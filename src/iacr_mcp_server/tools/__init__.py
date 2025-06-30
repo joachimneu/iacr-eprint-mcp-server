@@ -1,14 +1,11 @@
 """Tools package for IACR MCP server."""
 
-from .search import handle_search, search_tool
-from .details import handle_get_paper_details, get_paper_details_tool
-from .download import handle_download_paper, download_paper_tool
+from .details import get_paper_details
+from .download import download_paper
+from .search import search_papers
 
 __all__ = [
-    "handle_search",
-    "search_tool", 
-    "handle_get_paper_details",
-    "get_paper_details_tool",
-    "handle_download_paper", 
-    "download_paper_tool"
+    "search_papers",
+    "get_paper_details",
+    "download_paper",
 ]

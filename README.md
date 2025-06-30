@@ -38,7 +38,7 @@ npx -y @smithery/cli install iacr-mcp-server --client claude
 
 ```bash
 git clone https://github.com/joachimneu/iacr-eprint-mcp-server.git
-cd iacr-mcp-server
+cd iacr-eprint-mcp-server
 pip install -e .
 ```
 
@@ -46,7 +46,7 @@ pip install -e .
 
 ```bash
 git clone https://github.com/joachimneu/iacr-eprint-mcp-server.git
-cd iacr-mcp-server
+cd iacr-eprint-mcp-server
 pip install -e ".[dev]"
 ```
 
@@ -63,7 +63,7 @@ No additional configuration is required. The server uses the IACR ePrint Archive
 python -m iacr_mcp_server
 
 # Via installed script
-iacr-mcp-server
+iacr-eprint-mcp-server
 ```
 
 ### Available Tools
@@ -90,7 +90,7 @@ iacr-mcp-server
 
 This project uses modern Python development practices:
 
-- **Black** for code formatting
+- **Ruff** for code formatting and linting
 - **Pydantic** for data validation and settings
 - **Type hints** throughout the codebase
 - **Async/await** for efficient I/O operations
@@ -105,7 +105,7 @@ python -m unittest tests/ -v
 ### Code Formatting
 
 ```bash
-black src/ tests/
+ruff format src/ tests/
 ```
 
 ## Architecture
