@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "iacr-mcp-server"
+version = "0.1.0"
+description = "MCP Server for IACR Cryptology ePrint Archive"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "doomdagadiggiedahdah", email = "" }
+]
+dependencies = [
+    "mcp>=1.2.0",
+    "httpx>=0.24.0",
+    "python-dateutil>=2.8.2",
+    "pydantic>=2.8.0",
+    "xmltodict>=0.13.0",
+    "python-dotenv>=1.0.0",
+    "pydantic-settings>=2.1.0",
+    "anyio>=4.2.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.3.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.5",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.10.0"
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-v --cov=iacr_mcp_server"
+
+[project.scripts]
+iacr-mcp-server = "iacr_mcp_server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/iacr_mcp_server"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''

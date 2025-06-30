@@ -5,9 +5,30 @@ node_modules/
 build/
 dist/
 
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
 # Dependency lock files
 package-lock.json
 yarn.lock
+uv.lock
 
 # Environment files
 .env
