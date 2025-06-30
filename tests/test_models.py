@@ -1,7 +1,12 @@
 """Tests for the IACR MCP server."""
 
 import unittest
-from iacr_mcp_server.models import SearchPapersRequest, GetPaperDetailsRequest, DownloadPaperRequest
+
+from iacr_mcp_server.models import (
+    DownloadPaperRequest,
+    GetPaperDetailsRequest,
+    SearchPapersRequest,
+)
 
 
 class TestModels(unittest.TestCase):
@@ -12,11 +17,11 @@ class TestModels(unittest.TestCase):
         request = SearchPapersRequest(query="cryptography")
         self.assertEqual(request.query, "cryptography")
         self.assertEqual(request.max_results, 20)
-        
+
         request_with_options = SearchPapersRequest(
-            query="blockchain", 
-            year=2023, 
-            max_results=10
+            query="blockchain",
+            year=2023,
+            max_results=10,
         )
         self.assertEqual(request_with_options.year, 2023)
         self.assertEqual(request_with_options.max_results, 10)
@@ -31,7 +36,7 @@ class TestModels(unittest.TestCase):
         request = DownloadPaperRequest(paper_id="2023/123")
         self.assertEqual(request.paper_id, "2023/123")
         self.assertEqual(request.format, "pdf")
-        
+
         request_txt = DownloadPaperRequest(paper_id="2023/123", format="txt")
         self.assertEqual(request_txt.format, "txt")
 

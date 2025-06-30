@@ -72,7 +72,8 @@ async def search_papers(request: SearchPapersRequest) -> str:
 
             # Year filtering
             paper_year = datetime.strptime(
-                paper.pub_date, "%a, %d %b %Y %H:%M:%S %z",
+                paper.pub_date,
+                "%a, %d %b %Y %H:%M:%S %z",
             ).year
             if request.year and paper_year != request.year:
                 continue

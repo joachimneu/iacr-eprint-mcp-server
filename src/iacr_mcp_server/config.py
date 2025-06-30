@@ -14,10 +14,12 @@ class Settings(BaseSettings):
         description="IACR RSS feed URL",
     )
     MAX_RESULTS: int = Field(
-        default=100, description="Maximum number of search results",
+        default=100,
+        description="Maximum number of search results",
     )
     REQUEST_TIMEOUT: int = Field(
-        default=15, description="HTTP request timeout in seconds",
+        default=15,
+        description="HTTP request timeout in seconds",
     )
 
     class Config:
