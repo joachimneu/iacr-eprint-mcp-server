@@ -62,7 +62,7 @@ No additional configuration is required. The server uses the IACR ePrint Archive
 
 ```bash
 # Via module
-python -m iacr_mcp_server
+python -m iacr_eprint_mcp_server
 
 # Via installed script
 iacr-eprint-mcp-server
@@ -115,7 +115,7 @@ ruff format src/ tests/
 The server is structured as a modern Python package:
 
 ```
-src/iacr_mcp_server/
+src/iacr_eprint_mcp_server/
 ├── __init__.py          # Package initialization and main entry point
 ├── server.py            # MCP server implementation
 ├── config.py            # Configuration management with Pydantic

@@ -1,15 +1,10 @@
 """Data models for the IACR MCP server."""
 
-from enum import Enum
+from typing import Literal
 
 from pydantic import BaseModel, Field
 
-
-class DownloadFormat(str, Enum):
-    """Available download formats."""
-
-    PDF = "pdf"
-    TXT = "txt"
+DownloadFormat = Literal["pdf", "txt"]
 
 
 class SearchPapersRequest(BaseModel):
@@ -32,7 +27,7 @@ class DownloadPaperRequest(BaseModel):
 
     paper_id: str = Field(description="Unique paper identifier")
     format: DownloadFormat = Field(
-        DownloadFormat.PDF,
+        "pdf",
         description="Download format (pdf or txt)",
     )
 
